@@ -1,8 +1,27 @@
+//snippet-sourcedescription:[CreateConfiguration.java demonstrates how to create an Amazon MQ configuration.]
+//snippet-keyword:[AWS SDK for Java v2]
+//snippet-keyword:[Code Sample]
+//snippet-service:[Amazon MQ]
+//snippet-sourcetype:[full-example]
+//snippet-sourcedate:[2/18/2021]
+//snippet-sourceauthor:[fararmin-aws]
+
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: Apache-2.0
+*/
+
+// snippet-start:[mq.java2.create_configuration.complete]
 package com.example.mq;
 
+// snippet-start:[mq.java2.create_configuration.import]
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.mq.MqClient;
-import software.amazon.awssdk.services.mq.model.*;
+import software.amazon.awssdk.services.mq.model.CreateConfigurationRequest;
+import software.amazon.awssdk.services.mq.model.CreateConfigurationResponse;
+import software.amazon.awssdk.services.mq.model.MqException;
+// snippet-end:[mq.java2.create_configuration.import]
+
 
 public class CreateConfiguration {
     public static void main(String[] args) {
@@ -29,10 +48,12 @@ public class CreateConfiguration {
                 .region(region)
                 .build();
         
-        createNewConfigutation(mqClient, configurationName);
+        String result = createNewConfigutation(mqClient, configurationName);
+        System.out.println("Configuration ID: " + result);
         mqClient.close();
     }
-    private static void createNewConfigutation(MqClient mqClient, String configurationName) {
+    // snippet-start:[mq.java2.create_configuration.main]
+    public static String createNewConfigutation(MqClient mqClient, String configurationName) {
         try {
             CreateConfigurationRequest configurationRequest = CreateConfigurationRequest.builder()
                 .name(configurationName)
@@ -42,11 +63,14 @@ public class CreateConfiguration {
                 .build();
 
             CreateConfigurationResponse response = mqClient.createConfiguration(configurationRequest);
-            System.out.println(response);
+            return response.id();
 
         } catch (MqException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
         }
+        return "";
     }
+    // snippet-end:[mq.java2.create_configuration.main]
 }
+// snippet-end:[mq.java2.create_configuration.complete]

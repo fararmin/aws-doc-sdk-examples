@@ -33,7 +33,7 @@ To build and run these examples, you need the following:
              .build();
 
 
-**Note**: For more information about setting your AWS credentials, see  `Supplying and retrieving AWS credentials <https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html/>`_.
+**Note**: For more information about setting your AWS credentials, see  `Supplying and retrieving AWS credentials <https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html>`_.
 
 AWS Java code examples
 ======================
@@ -50,6 +50,8 @@ In the **use_cases** folder, find step-by-step development tutorials that use mu
 + **Creating_rds_item_tracker** - A tutorial that discusses using Amazon Relational Database Service (Amazon RDS), Amazon Simple Email Service (Amazon SES), and AWS Elastic Beanstalk to create a web application that tracks work items.
 
 + **Creating_dynamodb_item_tracker** - A tutorial that discusses using Amazon DynamoDB, Amazon Simple Email Service (Amazon SES), and AWS Elastic Beanstalk to create a web application that tracks work items.
+
++ **Creating_mongodb_item_tracker** - A tutorial that discusses using Amazon EC2 that hosts a MongoDB instance, Amazon Simple Email Service (Amazon SES), and AWS Elastic Beanstalk to create a web application that tracks work items.
 
 + **Creating AWS serverless workflows using the AWS SDK for Java** - A tutorial that discusses using the AWS SDK for Java and AWS Step Functions to create a workflow that invokes AWS services. Each workflow step is implemented by using an AWS Lambda function.
 
